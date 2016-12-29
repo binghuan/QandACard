@@ -44,8 +44,9 @@ var optionSix = document.getElementById("option_six");
 var URL_PROXIY_SERVER = "http://127.0.0.1:5000/rpdev";
 function ga(command, data) {
 
-    var bodyString = 'ac=&attach=[{"pkg":"tw.js.com","sug":-1,"res":800,"des":"",' +
-    '"catagory":"QandA",' +
+    var bodyString = 'ac=&attach=[{"pkg":"tw.js.com","sug":-1,"res":800,' +
+    '"des":"", ' +
+    '"catagory":"QandA_' + data.eventDescription + '",' +
     '"action":"' + data.eventAction + '",' +
     '"label":"' + data.eventLabel + '","cmqanda":"BH_QnA"}]';
 
@@ -73,7 +74,8 @@ function sendEvent() {
         hitType: 'event',
         eventCategory: 'Q and A',
         eventAction: "" + question.innerHTML + " : " + this.innerHTML,
-        eventLabel: question.innerHTML
+        eventLabel: question.innerHTML,
+        eventDescription: "Answer"
     });
 
     if (DBG) console.log("Get Click Event: Question ", question.innerHTML, "Answer ", this.innerHTML);
@@ -85,6 +87,7 @@ function sendEvent() {
         endOfCardArea.style.visibility = "visible";
     }
 }
+
 optionOne.onclick = sendEvent;
 optionTwo.onclick = sendEvent;
 optionThree.onclick = sendEvent;
@@ -116,5 +119,13 @@ function setupContent(i) {
 }
 
 setupContent(index);
+
+ga('send', {
+    hitType: 'event',
+    eventCategory: 'Q and A',
+    eventAction: "",
+    eventLabel: "",
+    eventDescription: "PageView"
+});
 
 console.log("@ END ");
