@@ -128,4 +128,6 @@ ga('send', {
     eventDescription: "PageView"
 });
 
+// Fix Margin issue.
+document.body.style.margin = 0;
 console.log("@ END ");
