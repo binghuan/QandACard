@@ -41,7 +41,7 @@ var optionFive = document.getElementById("option_five");
 var optionSix = document.getElementById("option_six");
 
 //var URL_PROXIY_SERVER = "http://127.0.0.1:5000/rp";
-var URL_PROXIY_SERVER = "http://127.0.0.1:5000/rp";
+var URL_PROXIY_SERVER = "http://127.0.0.1:5000/rpdev";
 function ga(command, data) {
 
     var bodyString = 'ac=&attach=[{"pkg":"tw.js.com","sug":-1,"res":800,"des":"",' +
@@ -49,7 +49,7 @@ function ga(command, data) {
     '"action":"' + data.eventAction + '",' +
     '"label":"' + data.eventLabel + '","cmqanda":"BH_QnA"}]';
 
-    console.log("Ready to send body: ", bodyString);
+    console.log("##Ready to send Event: ", bodyString);
     $.ajax({
         url: URL_PROXIY_SERVER,
         type: "POST",
@@ -57,13 +57,13 @@ function ga(command, data) {
         // curl -d "ac=&attach=[{"pkg":"tw.js.com","sug":-1,"res":800,"des":"","catagory":"QandA","action":"abcd","label":"bbb","cmqanda":1}]" http://localhost:5000/rp
         data: bodyString,
         complete: function(e) {
-            console.log("> complete: ", 3);
+            console.log("> complete: ", e);
         },
         success: function(e) {
-            console.log("> success: ", 3);
+            console.log("> success: ", e);
         },
         error: function(e) {
-            console.log("> error: ", 3);
+            console.log("> error: ", e);
         },
     });
 }
