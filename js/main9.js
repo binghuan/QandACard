@@ -36,6 +36,7 @@ var optionSix = document.getElementById("option_six");
 
 //var URL_PROXIY_SERVER = "http://127.0.0.1:5000/rp";
 var URL_PROXIY_SERVER = "https://binghuan.herokuapp.com/rp";
+//var URL_PROXIY_SERVER = "http://localhost:5000/rp";
 
 function ga(command, data) {
 
